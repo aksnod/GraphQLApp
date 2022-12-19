@@ -10,7 +10,9 @@ const PORT=3000;
 app.use(express.json());
 app.use('/graphql',graphqlHTTP({
     schema,
-    graphiql:true
+    graphiql:true,
+    rootValue:{token:"shyamdfdsfd"}
+
 }))
 
 
