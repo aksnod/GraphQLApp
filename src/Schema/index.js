@@ -8,7 +8,7 @@ const { USER_LIST, USER_BY_EMAIL } = require('./Queries/user');
 
 
 const rootQuery=new GraphQLObjectType({
-    name:'xyz',
+    name:'crud_query',
     fields:{
         user_list:USER_LIST,
         user_by_mail:USER_BY_EMAIL
@@ -17,7 +17,7 @@ const rootQuery=new GraphQLObjectType({
 
 })
 const rootMutation=new GraphQLObjectType({
-    name:'z',
+    name:'crud_mutation',
     fields:{
         create_user:USER_Add,
         update_user:UPDATE_USER,

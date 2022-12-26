@@ -1,0 +1,29 @@
+version: "3"
+services:
+# graphql application
+  graphapi:
+    build: .
+    depends_on:
+      - mongo_db
+
+# nginx img
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on: 
+      - graphapi
+    ports:
+      - 3000:3000
+
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 2717:27017
+    volumes:
+      - mongo_db:/data/db
+
+volumes:
+  mongo_db: {}
